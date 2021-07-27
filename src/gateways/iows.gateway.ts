@@ -7,7 +7,7 @@ import { WsUnauthException } from '../exceptions/WsUnauth.exception';
 @WebSocketGateway({transports: ['websocket'], allowUprade: false, pingTimeout: 10000, pingInterval: 30000, path: "/io_ws", verifyClient:(logger:Logger)=>(socket, next)=> {
   const header =  socket.handshake.headers;
   const {user_id, product_id} = header;
-  const error = new WsUnauthException(ErrorCatagory.WsSseUnauthException.toString(), `please check parameters,sse get api paramter not correct`);
+  const error = new WsUnauthException(ErrorCatagory.WsSseUnauthException, `please check parameters,sse get api paramter not correct`);
   logger.log({error: error.getError()});
   if (!user_id || !product_id) {
     next(error);
