@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AdminWsGateway } from './adminws.gateway';
-
+jest.mock('./adminws.gateway');
 describe('AdminioGateway', () => {
   let gateway: AdminWsGateway;
 

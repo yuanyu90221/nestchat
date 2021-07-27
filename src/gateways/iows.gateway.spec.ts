@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { IoWsGateway } from './iows.gateway';
-
+jest.mock('./iows.gateway');
 describe('IoWsGateway', () => {
   let gateway: IoWsGateway;
 

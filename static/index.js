@@ -28,9 +28,17 @@ const app = new Vue({
   created() {
     this.socket = io('ws://192.168.1.108:4123', {
       path: "/io_ws",
+      transportOptions: {
+        websocket: {
+          extraHeaders: {
+            user_id: '1',
+            product_id: '2'
+          }
+        }  
+      },
       transports: [
         "websocket"
-      ]
+      ],
     })
     this.socket.on('msgToClient', (message) => {
       this.receivedMessage(message)
