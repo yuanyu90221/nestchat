@@ -1,8 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit, SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
-import { ErrorCatagory } from '../exceptions/ErrorCatagory.enum';
-import { WsUnauthException } from '../exceptions/WsUnauth.exception';
+import { ErrorCatagory } from '../../../exceptions/ErrorCatagory.enum';
+import { WsUnauthException } from '../../../exceptions/WsUnauth.exception';
 @Injectable()
 @WebSocketGateway({transports: ['websocket'], allowUprade: false, pingTimeout: 10000, pingInterval: 30000, path: "/io_ws", verifyClient:(logger:Logger)=>(socket, next)=> {
   const header =  socket.handshake.headers;
